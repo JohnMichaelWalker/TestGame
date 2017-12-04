@@ -79,29 +79,22 @@ public class Game implements Runnable { // Runnable allows it to be run on a
 		
 		if(State.getState() != null)
 			State.getState().tick();
-		
-		//TESTING!////////////DELETE ME
-		
 	}
 
 	private void render() {
 		bs = display.getCanvas().getBufferStrategy();
-		if(bs == null){ //If there is no buffer strategy, create one
+		if(bs == null){ 
 			display.getCanvas().createBufferStrategy(3);
 			return;
 		}
-		g = bs.getDrawGraphics(); //Graphics object allows us to draw to the canvas (like a magic paintbrush)
-		//Clear Screen
-		g.clearRect(0, 0, width, height);
-		//Draw here!//////////////////////////////////////
+		g = bs.getDrawGraphics(); 
+		g.clearRect(0, 0, width, height); // Clear screen
 		
 		if(State.getState() != null)
 			State.getState().render(g);
 		
-		//End Drawing!/////////////////////////////////////
-		
 		bs.show(); // "works the buffer magic"
-		g.dispose(); // 
+		g.dispose(); 
 	}
 
 	public void run() {

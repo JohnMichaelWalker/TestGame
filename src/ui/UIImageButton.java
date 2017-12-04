@@ -5,7 +5,7 @@ import java.awt.image.BufferedImage;
 
 public class UIImageButton extends UIObject {
 	
-	private BufferedImage[] images;
+	protected BufferedImage[] images;
 	private ClickListener clicker;
 
 	public UIImageButton(float x, float y, int width, int height, BufferedImage[] images, ClickListener clicker) {
@@ -28,6 +28,6 @@ public class UIImageButton extends UIObject {
 	@Override
 	public void onClick() {
 		clicker.onClick();
-	}
+	} 
 
 }

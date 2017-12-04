@@ -8,17 +8,21 @@ public class Assets {
 	private static final int width = 32, height = 32;
 	
 	public static Font font28;
+	public static Font garamond28;
 
 	public static BufferedImage dirt, grass, stone, tree, rock;
 	public static BufferedImage wood;
 	public static BufferedImage[] player_down, player_up, player_left, player_right;
 	public static BufferedImage[] btn_start;
 	public static BufferedImage inventoryScreen;
+	public static BufferedImage menuBackground;
 	
 	public static void init(){
 		font28 = FontLoader.loadFont("res/fonts/slkscr.ttf", 28);
+		garamond28 = new Font ("Ariel", Font.BOLD | Font.ITALIC , 32);
 		
 		SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/spritesheet3.png"));
+		menuBackground = ImageLoader.loadImage("/textures/menuBackground1.png");
 		
 		inventoryScreen = ImageLoader.loadImage("/textures/inventoryScreen.png");
 		
@@ -26,8 +30,8 @@ public class Assets {
 		rock = sheet.crop(width, height, width, height);
 		
 		btn_start = new BufferedImage[2];
-		btn_start[0] = sheet.crop(width * 6, height * 2, width * 2, height);
-		btn_start[1] = sheet.crop(width * 6, height * 3, width * 2, height);
+		btn_start[0] = sheet.crop(width * 6, height * 3, width * 2, height);
+		btn_start[1] = sheet.crop(width * 4, height * 3, width * 2, height);
 		
 		player_down = new BufferedImage[4];
 		player_up = new BufferedImage[4];
@@ -51,7 +55,6 @@ public class Assets {
 		player_left[1] = sheet.crop(width*7, height*2, width, height);
 		player_left[2] = sheet.crop(width*7, height, width, height);
 		player_left[3] = sheet.crop(width*7, height*2, width, height);
-		
 		
 		dirt = sheet.crop(width, 0, width, height);
 		grass = sheet.crop(width*2,0,width,height);

@@ -26,15 +26,23 @@ public abstract class UIObject {
 	public abstract void onClick();
 	
 	public void onMouseMove(MouseEvent e){
-		if(bounds.contains(e.getX(),e.getY()))
+		if(bounds.contains(e.getX(),e.getY())) {
 			hovering = true;
-		else
+		}
+		else {
 			hovering = false;
+		}
 	}
 	
 	public void onMouseRelease(MouseEvent e){
 		if(hovering)
 			onClick();
+	}
+	
+	
+	public void onMousePressed(MouseEvent e) {
+		System.out.println("mouse clicked!");
+		
 	}
 	
 	
@@ -79,5 +87,9 @@ public abstract class UIObject {
 	public void setHovering(boolean hovering) {
 		this.hovering = hovering;
 	}
+
+	
+
+	
 
 }

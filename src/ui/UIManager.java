@@ -36,6 +36,11 @@ public class UIManager {
 			o.onMouseRelease(e);
 	}
 	
+	public void onMousePressed(MouseEvent e){
+		for(UIObject o : objects)
+			o.onMousePressed(e);
+	}
+	
 	public void addObject(UIObject o){
 		objects.add(o);
 	}
