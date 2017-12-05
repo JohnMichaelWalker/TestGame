@@ -3,6 +3,7 @@ package worlds;
 import java.awt.Graphics;
 
 import entities.EntityManager;
+import entities.cards.Card;
 import entities.creatures.Player;
 import entities.statics.Rock;
 import entities.statics.Tree;
@@ -26,13 +27,16 @@ public class World {
 		this.handler = handler;
 		entityManager = new EntityManager(handler, new Player(handler, 100, 100));
 		itemManager = new ItemManager(handler);
-		//Temporary entity code!
+		
+		//Temporary entity code! TODO
 		entityManager.addEntity(new Tree(handler, 100, 250));
 		entityManager.addEntity(new Rock(handler, 100, 450));
 		entityManager.addEntity(new Tree(handler, 200, 550));
 		entityManager.addEntity(new Tree(handler, 100, 650));
 		entityManager.addEntity(new Rock(handler, 130, 800));
 		entityManager.addEntity(new Rock(handler, 200, 750));
+		
+		entityManager.addEntity(new Card(handler, 200, 200));
 		
 		loadWorld(path);
 		

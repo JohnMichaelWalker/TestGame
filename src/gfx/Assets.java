@@ -16,12 +16,14 @@ public class Assets {
 	public static BufferedImage[] btn_start;
 	public static BufferedImage inventoryScreen;
 	public static BufferedImage menuBackground;
+	public static BufferedImage testCard1;
 	
 	public static void init(){
 		font28 = FontLoader.loadFont("res/fonts/slkscr.ttf", 28);
-		garamond28 = new Font ("Ariel", Font.BOLD | Font.ITALIC , 32);
+		garamond28 = new Font ("Ariel", Font.PLAIN , 28);
 		
 		SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/spritesheet3.png"));
+		SpriteSheet cardSheet = new SpriteSheet(ImageLoader.loadImage("/textures/cardsTest.png"));
 		menuBackground = ImageLoader.loadImage("/textures/menuBackground1.png");
 		
 		inventoryScreen = ImageLoader.loadImage("/textures/inventoryScreen.png");
@@ -60,5 +62,7 @@ public class Assets {
 		grass = sheet.crop(width*2,0,width,height);
 		stone = sheet.crop(width*3, 0, width, height);
 		tree = sheet.crop(0, height, width, height * 2);
+		
+		testCard1 = cardSheet.crop(0, 0, 335, 515);
 	}
 }

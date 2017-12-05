@@ -44,9 +44,10 @@ public class MenuState extends State {
 			}
 		}));
 		
-		uiManager.addObject(new UITextImageButton(handler.getWidth()/2 - BUTTON_WIDTH/2, BUTTON_WIDTH + 3*(BUTTON_HEIGHT + 4), BUTTON_WIDTH, BUTTON_HEIGHT, Assets.btn_start,"Settings", new ClickListener() {
+		uiManager.addObject(new UITextImageButton(handler.getWidth()/2 - BUTTON_WIDTH/2, BUTTON_WIDTH + 3*(BUTTON_HEIGHT + 4), BUTTON_WIDTH, BUTTON_HEIGHT, Assets.btn_start,"Quit", new ClickListener() {
 			@Override
 			public void onClick() {
+				System.exit(0);
 			}
 		}));
 	}

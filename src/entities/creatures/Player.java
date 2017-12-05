@@ -14,6 +14,7 @@ public class Player extends Creature {
 
 	// Animations
 	private Animation animDown, animUp, animLeft, animRight;
+	private char currentDirection; //U,D,L,R
 	//Attack timer
 	private long lastAttackTimer, attackCooldown = 800, attackTimer = attackCooldown;
 	//Inventory
@@ -33,6 +34,7 @@ public class Player extends Creature {
 		animUp = new Animation(200, Assets.player_up);
 		animLeft = new Animation(200, Assets.player_left);
 		animRight = new Animation(200, Assets.player_right);
+		currentDirection = 'D';
 		
 		inventory = new Inventory(handler);
 	}
@@ -128,13 +130,31 @@ public class Player extends Creature {
 	
 	private BufferedImage getCurrentAnimationFrame(){
 		if (xMove < 0){
+			currentDirection = 'L';
 			return animLeft.getCurrentFrame();
 		}else if(xMove > 0){
+			currentDirection = 'R';
 			return animRight.getCurrentFrame();
 		}else if(yMove < 0){
+			currentDirection = 'U';
 			return animUp.getCurrentFrame();
-		}else{
+		}else if (yMove > 0){
+			currentDirection = 'D';
 			return animDown.getCurrentFrame();
+		} else {
+			switch (currentDirection) {
+			case 'L':
+				return Assets.player_left[0];
+			case 'R':
+				return Assets.player_right[0];
+			case 'U':
+				return Assets.player_up[0];
+			case 'D':
+				return Assets.player_down[0];
+			default:
+				System.err.println("Player animation was not set properly");
+				return Assets.player_left[0];
+			} 
 		}
 	}
 	
