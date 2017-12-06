@@ -67,6 +67,7 @@ public class World {
 		entityManager.render(g);
 	}
 
+	
 	public Tile getTile(int x, int y){
 		if(x < 0 || y < 0 || x >= width || y >= height)
 			return Tile.grassTile;
@@ -76,7 +77,20 @@ public class World {
 		if(t == null)
 			return Tile.dirtTile;
 		return t;
-	}
+	} 
+	
+	
+	public void setTile(int x, int y, Tile tile){
+		
+		for (int i = 0; i < Tile.tiles.length; i++) {
+			if (Tile.tiles[i] == tile) {
+				tiles[x][y] = i;
+				break;
+			}
+		}
+		
+	} 
+	
 	
 	private void loadWorld(String path) {
 		String file = Utils.loadFileAsString(path);

@@ -28,10 +28,6 @@ public class KeyManager implements KeyListener{
 			}
 		}
 		
-		if(keyJustPressed(KeyEvent.VK_E)){
-			System.out.println("E JUST PRESSED");
-		}
-		
 		up = keys[KeyEvent.VK_W];
 		down = keys[KeyEvent.VK_S];
 		left = keys[KeyEvent.VK_A];

@@ -9,16 +9,19 @@ import gfx.Animation;
 import gfx.Assets;
 import inventory.Inventory;
 import tilegame.Handler;
+import worldEditter.MapEditor;
 
 public class Player extends Creature {
 
 	// Animations
 	private Animation animDown, animUp, animLeft, animRight;
 	private char currentDirection; //U,D,L,R
-	//Attack timer
+	
 	private long lastAttackTimer, attackCooldown = 800, attackTimer = attackCooldown;
-	//Inventory
+	
 	private Inventory inventory;
+	
+	private MapEditor mapEditor;
 	
 	public Player(Handler handler, float x, float y) {
 		super(handler, x, y, Creature.DEFAULT_CREATURE_WIDTH,
@@ -37,6 +40,7 @@ public class Player extends Creature {
 		currentDirection = 'D';
 		
 		inventory = new Inventory(handler);
+		mapEditor = new MapEditor(handler);
 	}
 
 	public void tick() {
@@ -51,6 +55,8 @@ public class Player extends Creature {
 		handler.getGameCamera().centerOnEntity(this);
 		//Attack
 		checkAttacks();
+		//MapEditor
+		mapEditor.tick();
 		//Inventory
 		inventory.tick();
 	}
