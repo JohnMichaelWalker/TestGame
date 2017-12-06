@@ -65,6 +65,8 @@ public class UIManager {
 		this.objects = objects;
 	}
 	
-	
+	public void removeAllObjects() {
+		objects = new ArrayList<UIObject>();
+	}
 
 }

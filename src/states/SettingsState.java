@@ -18,4 +18,10 @@ public class SettingsState extends State{
 		
 	}
 
+	@Override
+	public void closeState() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

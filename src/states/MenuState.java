@@ -6,7 +6,6 @@ import gfx.Assets;
 import gfx.Background;
 import tilegame.Handler;
 import ui.ClickListener;
-import ui.UIImageButton;
 import ui.UIManager;
 import ui.UITextImageButton;
 
@@ -62,5 +61,10 @@ public class MenuState extends State {
 		background.render(g);
 		uiManager.render(g);
 		
+	}
+
+	@Override
+	public void closeState() {
+		uiManager.removeAllObjects();
 	}
 }
