@@ -18,10 +18,8 @@ public class MenuState extends State {
 
 	public MenuState(Handler handler) {
 		super(handler);
-		uiManager = new UIManager(handler);
-		handler.getMouseManager().setUIManager(uiManager);
-		
-		background = new Background(Assets.menuBackground, Assets.menuBackground.getWidth(), Assets.menuBackground.getHeight());
+		uiManager = handler.getUIManager();
+		background = new Background(Assets.menuBackground, handler.getWidth(), handler.getHeight());
 
 		uiManager.addObject(new UITextImageButton(handler.getWidth()/2 - BUTTON_WIDTH/2, BUTTON_WIDTH, BUTTON_WIDTH, BUTTON_HEIGHT, Assets.btn_start, "Start", new ClickListener() {
 					@Override
@@ -53,13 +51,11 @@ public class MenuState extends State {
 
 	@Override
 	public void tick() {
-		uiManager.tick();
 	}
 
 	@Override
 	public void render(Graphics g) {
 		background.render(g);
-		uiManager.render(g);
 		
 	}
 

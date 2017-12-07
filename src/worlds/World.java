@@ -3,7 +3,6 @@ package worlds;
 import java.awt.Graphics;
 
 import entities.EntityManager;
-import entities.cards.Card;
 import entities.creatures.Player;
 import entities.statics.Rock;
 import entities.statics.Tree;
@@ -35,8 +34,6 @@ public class World {
 		entityManager.addEntity(new Tree(handler, 100, 650));
 		entityManager.addEntity(new Rock(handler, 130, 800));
 		entityManager.addEntity(new Rock(handler, 200, 750));
-		
-		entityManager.addEntity(new Card(handler, 200, 200));
 		
 		loadWorld(path);
 		

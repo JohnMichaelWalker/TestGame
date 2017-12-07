@@ -1,5 +1,6 @@
-package worldEditter;
+package mapEditor;
 
+import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 
 import input.MouseManager;
@@ -11,11 +12,13 @@ public class MapEditor {
 	private Handler handler;
 	private boolean active = false; //This should get toggled by the key, nothing is done if false
 	private MouseManager mouseManager;
+	private MapEditorUI mapEditorUI;
 	
 	
 	public MapEditor(Handler handler){
 		this.handler = handler;
 		mouseManager = handler.getMouseManager();
+		mapEditorUI = new MapEditorUI(handler);
 	}
 
 	public void tick() {
@@ -24,16 +27,16 @@ public class MapEditor {
 		if(!active)
 			return;
 		
-		
-		System.out.println(mouseManager.isLeftPressed());
 		if (mouseManager.isLeftPressed()){
 			setTileAtMousePosition();
 		}
 	}
 	
-	public void render() {
+	public void render(Graphics g) {
 		if(!active)
 			return;
+		
+		mapEditorUI.render(g);
 		
 	}
 	

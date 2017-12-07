@@ -13,6 +13,7 @@ import states.GameState;
 import states.MenuState;
 import states.SettingsState;
 import states.State;
+import ui.UIManager;
 
 /*
  * GAME LOOP (SEE METHOD 'RUN'):
@@ -41,13 +42,15 @@ public class Game implements Runnable { // Runnable allows it to be run on a
 	//Input
 	private KeyManager keyManager;
 	private MouseManager mouseManager;
+	private UIManager uiManager;
 
 	public Game(String title, int width, int height) {
 		this.width = width;
 		this.height = height;
 		this.title = title;
 		keyManager = new KeyManager();
-		mouseManager = new MouseManager();
+		uiManager = new UIManager();
+		mouseManager = new MouseManager(uiManager);
 	}
 	
 	//Camera
@@ -76,6 +79,7 @@ public class Game implements Runnable { // Runnable allows it to be run on a
 
 	private void tick() {
 		keyManager.tick();
+		uiManager.tick();
 		
 		if(State.getState() != null)
 			State.getState().tick();
@@ -90,11 +94,14 @@ public class Game implements Runnable { // Runnable allows it to be run on a
 		g = bs.getDrawGraphics(); 
 		g.clearRect(0, 0, width, height); // Clear screen
 		
-		if(State.getState() != null)
+		if(State.getState() != null) {
 			State.getState().render(g);
-		
+			uiManager.render(g);
+		}
 		bs.show(); // "works the buffer magic"
 		g.dispose(); 
+		
+		
 	}
 
 	public void run() {
@@ -131,6 +138,10 @@ public class Game implements Runnable { // Runnable allows it to be run on a
 		return mouseManager;
 	}
 	
+	public UIManager getUIManager() {
+		return uiManager;
+	}
+
 	public GameCamera getGameCamera(){
 		return gameCamera;
 	}
@@ -138,7 +149,7 @@ public class Game implements Runnable { // Runnable allows it to be run on a
 	public int getWidth(){
 		return width;
 	}
-	
+
 	public int getHeight(){
 		return height;
 	}

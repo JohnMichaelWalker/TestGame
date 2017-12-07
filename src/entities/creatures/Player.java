@@ -8,8 +8,8 @@ import entities.Entity;
 import gfx.Animation;
 import gfx.Assets;
 import inventory.Inventory;
+import mapEditor.MapEditor;
 import tilegame.Handler;
-import worldEditter.MapEditor;
 
 public class Player extends Creature {
 
@@ -128,6 +128,7 @@ public class Player extends Creature {
 		g.drawImage(getCurrentAnimationFrame(), (int) (x - handler.getGameCamera()
 				.getxOffset()), (int) (y - handler.getGameCamera().getyOffset()),
 				width, height, null);
+		mapEditor.render(g);
 	}
 	
 	public void postRender(Graphics g){

@@ -3,6 +3,7 @@ package states;
 import java.awt.Graphics;
 
 import tilegame.Handler;
+import ui.UIManager;
 
 
 public abstract class State {

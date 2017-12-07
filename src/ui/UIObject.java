@@ -41,7 +41,6 @@ public abstract class UIObject {
 	
 	
 	public void onMousePressed(MouseEvent e) {
-		System.out.println("mouse clicked!");
 		
 	}
 	

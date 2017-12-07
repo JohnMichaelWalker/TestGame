@@ -4,15 +4,11 @@ import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
-import tilegame.Handler;
-
 public class UIManager {
 	
-	private Handler handler;
 	private ArrayList<UIObject> objects;
 	
-	public UIManager(Handler handler){
-		this.handler = handler;
+	public UIManager(){
 		objects = new ArrayList<UIObject>();
 	}
 	
@@ -47,14 +43,6 @@ public class UIManager {
 	
 	public void removeObject(UIObject o){
 		objects.remove(o);
-	}
-
-	public Handler getHandler() {
-		return handler;
-	}
-
-	public void setHandler(Handler handler) {
-		this.handler = handler;
 	}
 
 	public ArrayList<UIObject> getObjects() {

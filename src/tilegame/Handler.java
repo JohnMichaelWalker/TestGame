@@ -3,6 +3,7 @@ package tilegame;
 import gfx.GameCamera;
 import input.KeyManager;
 import input.MouseManager;
+import ui.UIManager;
 import worlds.World;
 
 public class Handler {
@@ -24,6 +25,10 @@ public class Handler {
 	
 	public MouseManager getMouseManager(){
 		return game.getMouseManager();
+	}
+	
+	public UIManager getUIManager(){
+		return game.getUIManager();
 	}
 	
 	public int getWidth(){
